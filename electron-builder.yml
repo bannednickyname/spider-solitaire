@@ -7,6 +7,8 @@ files:
   - package.json
 asar: true
 compression: maximum
+# 禁用自动发布/更新元数据推断（publish 必须是空数组而非 null，null 会回退到 git 远程推断）
+publish: []
 # 打包后裁剪 Electron 运行时中本应用用不到的组件（见 scripts/afterPack.cjs）
 afterPack: scripts/afterPack.cjs
 win:
@@ -18,3 +20,6 @@ nsis:
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
   shortcutName: 蜘蛛纸牌
+  # 关闭差量更新包生成（blockmap/latest.yml）：本应用不提供自动更新，
+  # 否则 electron-builder 会因 git 远程指向 GitHub 而要求 GH_TOKEN
+  differentialPackage: false
