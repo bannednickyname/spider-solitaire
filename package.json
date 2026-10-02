@@ -12,7 +12,7 @@
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
     "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
-    "build:win": "electron-vite build && electron-builder --win"
+    "build:win": "electron-vite build && electron-builder --win -c.publish=null"
   },
   "dependencies": {
     "@vicons/fluent": "^0.13.0",
